@@ -1,24 +1,49 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Trades from "../views/Trades";
+import Strategies from "../views/Strategies";
+import Wallets from "../views/Wallets";
+import Excganges from "../views/Excganges";
+import ModelPredictionTest from "../views/ModelPredictionTest";
+import StrategyTest from "../views/StrategyTest";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    redirect: '/wallets'
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: "/trades",
+    name: "Trades",
+    component: Trades,
   },
+  {
+    path: "/strategies",
+    name: "Strategies",
+    component: Strategies,
+  },
+  {
+    path: "/wallets",
+    name: "Wallets",
+    component: Wallets,
+  },
+  {
+    path: "/exchanges",
+    name: "Exchanges",
+    component: Excganges,
+  },
+  {
+    path: "/model-prediction-test",
+    name: "ModelPredictionTest",
+    component: ModelPredictionTest,
+  },
+  {
+    path: "/strategy-test",
+    name: "StrategyTest",
+    component: StrategyTest,
+  }
 ];
 
 const router = new VueRouter({
