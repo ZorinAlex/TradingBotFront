@@ -31,7 +31,7 @@
             <div class="text-h5">Model signals</div>
         </v-row>
         <div v-if="currentModel">
-            <model-signals ref="model" :model="currentModel.name" :version="currentModel.value.version" :hours="currentModel.value.hours"/>
+            <model-signals ref="model" :model="currentModel.value.name" :version="currentModel.value.version" :hours="currentModel.value.hours"/>
         </div>
     </v-container>
 </template>

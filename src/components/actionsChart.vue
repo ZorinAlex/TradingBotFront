@@ -38,6 +38,7 @@ export default {
     data: [],
     pointColor: [],
     pointStyle: [],
+      pointBorderColor: []
   }),
   methods: {
     clearGraph() {

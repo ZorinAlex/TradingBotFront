@@ -76,6 +76,12 @@ export default new Vuex.Store({
             );
             return data.data;
         },
+        async getTestMinuteDataForHour({}, timestamp) {
+            let data = await axios.get(
+                `http://localhost:3030/data/${timestamp}/${timestamp + 58 * 60 * 1000}/60`
+            );
+            return data.data;
+        },
         async getPrediction({commit}, predictionData) {
             const prediction = await axios.post("http://localhost:3030/prediction", {
                 data: predictionData.data,
@@ -100,7 +106,17 @@ export default new Vuex.Store({
         async getExchanges({commit}) {
             const exchanges = await axios.get("http://161.35.219.177:3030/exchange/list");
             commit('addExchanges', exchanges.data)
-        }
+        },
+        async getStrategyTest({}, testData) {
+            const test = await axios.post("http://localhost:3030/strategy/addTestInput", {
+                modelName: testData.modelName,
+                modelVersion: testData.modelVersion,
+                price: testData.price,
+                isFromTicker: testData.isFromTicker,
+                predictionData: testData.predictionData
+            });
+            return test
+        },
     },
     modules: {},
 });
